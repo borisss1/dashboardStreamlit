@@ -10,10 +10,6 @@ cg = CoinGeckoAPI()
 st.set_page_config(page_title="BTC Merton Portfolio & Vol Surface", layout="wide")
 
 st.title("BTC Volatility Surface & Merton Allocation")
-st.markdown("""
-This dashboard uses **CoinGecko** data to model BTC's volatility surface and calculate the 
-**Merton Optimal Portfolio**. It breaks down your position into **Myopic Demand** (immediate risk/reward) and **Hedging Demand** (protection against volatility shifts).
-""")
 
 st.sidebar.header("Model Settings")
 lookback_days = st.sidebar.slider("Lookback period (days)", 60, 365, 180)
@@ -137,4 +133,5 @@ fig_history.update_layout(
     yaxis2=dict(title="Volatility (Annualized)", overlaying="y", side="right"),
     legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
 )
+
 st.plotly_chart(fig_history, use_container_width=True)
